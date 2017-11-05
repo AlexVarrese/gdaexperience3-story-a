@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ContosoAir.Clients
 {
@@ -29,11 +29,9 @@ namespace ContosoAir.Clients
         public const string SignUpSignInPolicy = "B2C_1_Contosoair";
 
         // Azure Push Notification
-        //public const string NotificationHubConnectionString = "Endpoint=sb://contosoairprod-notification-nsmtczerocfa.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=ggKKtrwjK1rQHxv06FMUh/moZSUjbn1BsZEWMJfC5iA=";
-        //public const string NotificationHubName = "contosoairprodnotification-hub";
 
-        public const string NotificationHubConnectionString = "Endpoint=sb://c2ctushar-namespace.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=LX88dQCC3i9ThgcYXCUPNsFarzlb5HeUVGEqMGXmYN8=";
-        public const string NotificationHubName = "c2ctushar-hub";
+        public const string NotificationHubConnectionString = "Endpoint=sb://XXXXXXXXXXX-namespace.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=XXXXXXXXXXX";
+        public const string NotificationHubName = "XXXXXXXXXXX";
 
 
         // HockeyApp
@@ -46,8 +44,7 @@ namespace ContosoAir.Clients
         public const string AndroidPackageId = "com.contoso.air";
 
         // For fetching details of solo service providers
-        public const string GetSoloServiceInfoUrl = "https://c2ctusharfucntions.azurewebsites.net/api/GetSoloServiceProviders?code=pMWMpQabFDFacQMQH9n51eGwXSVJHAYriaqjDJc/MKm1eczDm/0YuA==";
-        public const string GetSoloServiceReviewUrl = "https://prod-53.westus.logic.azure.com:443/workflows/941dee7eccb041afbc0173c49f3fcd76/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=pwDVFdoxy8H9N5DqYvUbDaIFdxPWi50qTe3NrvCP1jA";        
+        public const string GetSoloServiceInfoUrl = "XXXXXXXXXXX";
+        public const string GetSoloServiceReviewUrl = "XXXXXXXXXXX";        
     }
 }
-
