@@ -1,4 +1,4 @@
-﻿using ContosoAir.Clients.DataServices.Deals;
+using ContosoAir.Clients.DataServices.Deals;
 using ContosoAir.Clients.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -73,33 +73,6 @@ namespace ContosoAir.Clients.DataServices.SoloServiceProviders
             string responseData = await response.Content.ReadAsStringAsync();
 
             return await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<SoloService>>(responseData, _serializerSettings));
-        }
-
-        // Get Review score of SoloService Provider from Logic App
-
-        public async Task<string> GetReviewScore(List<Reviews> Reviews)
-        {
-            HttpClient httpClient = CreateHttpClient();
-
-            string serialized = await Task.Run(() => JsonConvert.SerializeObject(Reviews, _serializerSettings));
-
-            HttpResponseMessage response = await httpClient.PostAsync(GetSoloServiceReviewUrl,
-                new StringContent(serialized, Encoding.UTF8, "application/json"));
-
-            await HandleResponse(response);
-
-            string responseData = await response.Content.ReadAsStringAsync();
-
-            return await Task.Run(() => (responseData));
-        }
-       
+        }       
     }
 }
-
-
-
-
-
-
-
-
