@@ -1,4 +1,4 @@
-﻿using ContosoAir.Clients.DataServices.Authentication;
+using ContosoAir.Clients.DataServices.Authentication;
 using ContosoAir.Clients.DataServices.SoloServiceProviders;
 using ContosoAir.Clients.Models;
 using ContosoAir.Clients.Services.Notifications;
@@ -57,6 +57,8 @@ namespace ContosoAir.Clients.ViewModels
                     soloService = _soloService;
                     int index = 0;
                     SoloServiceProviders SoloService = new SoloServiceProviders();
+                    SoloService.Source_SoloService_Score = 0;
+                    SoloService.Dest_SoloService_Score = 0;
                     foreach (SoloService SS in soloService)
                     {
                         if (index == 0)
@@ -73,9 +75,7 @@ namespace ContosoAir.Clients.ViewModels
                             SoloService.Source_SoloService_Phone_1 = SS.Phone1;
                             SoloService.Source_SoloService_Phone_2 = SS.Phone2;
                             SoloService.Source_SoloService_Photo = SS.Photo;
-                            SoloService.Source_SoloService_Reviews = SS.Reviews;
-                            var Source_SoloService_Score = await _soloServiceProvider.GetReviewScore(SS.Reviews);
-                            SoloService.Source_SoloService_Score = float.Parse(Source_SoloService_Score, CultureInfo.InvariantCulture.NumberFormat) * 5;                            
+                            SoloService.Source_SoloService_Reviews = SS.Reviews;                           
                             SoloService.Source_SoloService_End_Date = date.ToString("dddd, dd MMMM yyyy");
                             SoloService.Source_SoloService_Code = "BCN - SEA";
                         }
@@ -91,9 +91,7 @@ namespace ContosoAir.Clients.ViewModels
                             SoloService.Dest_SoloService_Phone_1 = SS.Phone1;
                             SoloService.Dest_SoloService_Phone_2 = SS.Phone2;
                             SoloService.Dest_SoloService_Photo = SS.Photo;
-                            SoloService.Dest_SoloService_Reviews = SS.Reviews;
-                            var Dest_SoloService_Score = await _soloServiceProvider.GetReviewScore(SS.Reviews);
-                            SoloService.Dest_SoloService_Score = float.Parse(Dest_SoloService_Score, CultureInfo.InvariantCulture.NumberFormat) * 5;                            
+                            SoloService.Dest_SoloService_Reviews = SS.Reviews;                           
                             SoloService.Dest_SoloService_End_Date = date.ToString("dddd, dd MMMM yyyy");
                             SoloService.Dest_SoloService_Code = "BCN - SEA";
                         }
@@ -111,10 +109,5 @@ namespace ContosoAir.Clients.ViewModels
             }
 
         }
-
-
-
-        
     }
 }
-
